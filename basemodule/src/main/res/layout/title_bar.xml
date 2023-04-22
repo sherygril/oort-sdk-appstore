@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.oortcloud.basemodule.navigationbar.MergerStatus
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/mergerStatus"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/main_color">
+
+    <RelativeLayout style="@style/title_bar_style"
+        >
+
+        <TextView
+            android:id="@+id/back"
+            style="@style/back_view"
+            android:visibility="gone" />
+
+
+        <TextView
+            android:id="@+id/title_tv"
+            style="@style/title_text_style"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16.0dip"
+            android:layout_marginRight="75.0dip"
+            android:layout_toRightOf="@id/back"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:typeface="normal"
+            android:visibility="gone" />
+
+        <RelativeLayout
+            android:id="@+id/home_rl"
+            android:layout_width="86dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="10dp"
+            android:background="@mipmap/bg3"
+            android:orientation="horizontal"
+            android:visibility="visible">
+
+            <TextView
+                android:id="@+id/more_tv"
+                android:layout_width="26dp"
+                android:layout_height="26dp"
+                android:layout_centerVertical="true"
+                android:clickable="true"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="3dp"
+                android:layout_marginBottom="3dp"
+                android:background="@drawable/title_bg_more"/>
+
+            <TextView
+                android:id="@+id/home_tv"
+                android:layout_width="26dp"
+                android:layout_height="26dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="8dp"
+                android:layout_marginTop="3dp"
+                android:layout_marginBottom="3dp"
+                android:clickable="true"
+                android:background="@drawable/title_bg_home"/>
+
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/right_text"
+            style="@style/title_bar_button"
+            android:layout_alignParentRight="true"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/right_setting_text"
+            style="@style/title_bar_button"
+            android:layout_toLeftOf="@id/right_text"
+            android:visibility="gone" />
+
+
+    </RelativeLayout>
+</com.oortcloud.basemodule.navigationbar.MergerStatus>

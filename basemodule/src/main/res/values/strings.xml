@@ -1,0 +1,8 @@
+<resources>
+<!--    <string name="app_name">BaseModule</string>-->
+
+    <string name="base_data_exception">数据异常，请稍后重试</string>
+    <string name="base_net_exception">网络异常，请稍后重试</string>
+    <string name="base_request_exception">网络异常，请稍后重试</string>
+    <string name="base_tip_unkown_error_place_holder">未知异常，%s</string>
+</resources>

@@ -1,0 +1,92 @@
+apply plugin: 'com.android.library'
+//apply plugin: 'com.kezong.fat-aar'
+
+apply plugin: 'maven-publish'
+android {
+    compileSdkVersion 29
+
+
+    defaultConfig {
+        minSdkVersion 21
+        targetSdkVersion 31
+        versionCode 1
+        versionName "1.0"
+
+
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+//            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            consumerProguardFiles 'proguard-rules.pro'
+        }
+        debug{
+            minifyEnabled false
+//            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            consumerProguardFiles 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+//    repositories {
+//        flatDir {
+//            dirs 'libs'
+//        }
+//    }
+
+}
+
+
+publishing {
+    repositories {
+        maven {
+            credentials {
+                username 'sherygril@sina.com' // 仓库发布用户名
+                password '19910502cC' // 仓库发布用户密码
+            }
+            url 'https://github.com/sherygril/oort-sdk-appstore' // 仓库地址
+        }
+    }
+}
+afterEvaluate {
+    publishing {
+        publications {
+            release(MavenPublication) {
+                // 添加以下配置可以自动从编译容器中获取release版本内容（使用debug可以获取debug版本内容），并生成pom文件
+                // 注意：发布物声明必须在 afterEvaluate 内部，因为 components 在 afterEvaluate 阶段才生成完成
+                from components.release
+
+                groupId 'oort.sdk' // groupId
+                artifactId 'appstore01' // artifactId
+                version '1.0.0' // 发布版本
+                description 'This is a liberary to test v1.0.0' // 说明描述
+            }
+        }
+    }
+}
+
+
+
+
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'androidx.appcompat:appcompat:1.0.2'
+//    implementation "com.android.support:appcompat-v7:24.2.1"
+
+    //内存泄漏测试
+//    implementation 'com.squareup.leakcanary:leakcanary-android:1.6.3'
+//    implementation 'com.squareup.leakcanary:leakcanary-support-fragment:1.6.3'
+    //快速KEY-VALUE存取库
+   //implementation 'com.jeremyliao:fast-sharedpreferences:0.0.1'
+    //FASTJSON
+//    compileOnly 'com.alibaba:fastjson:1.2.40'
+//    implementation files('libs/fastjson-1.2.40.jar')
+    api files('libs/fastjson-1.2.40.jar')
+    implementation 'com.squareup.okhttp3:okhttp:3.14.9'
+    implementation 'com.belerweb:pinyin4j:2.5.0'
+    // files('libs/fastjson-1.2.40.jar')
+}
